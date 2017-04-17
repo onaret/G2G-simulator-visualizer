@@ -1,0 +1,119 @@
+extends layout
+
+block content
+
+  script(src='javascripts/visualizer.js')
+  .container.navbar.navbar-default.marged.no-bottom-margin
+    .row.padding-left
+      h1.letter-spacing= title
+
+      p.letter-spacing Select the correction
+      .btn-group(data-toggle='buttons')
+        label.btn.btn-primary
+          input#no-cor(type='radio', name='cor')
+          |No correction
+        label.btn.btn-primary
+          input#host(type='radio', name='cor')
+          |Host side correction
+        label.btn.btn-primary
+          input#strains(type='radio', name='cor')
+          |Pathogen side correction
+        label.btn.btn-primary
+          input#both(type='radio', name='cor')
+          |Host and pathogen side corrections
+
+      p.padded.letter-spacing Select the signal
+      .btn-group(data-toggle='buttons')
+        label.btn.btn-primary
+          input#noss(type='radio', name='sig')
+          |No spurious signal
+        label.btn.btn-primary
+          input#ss(type='radio', name='sig')
+          |Spurious signal
+        label.btn.btn-primary
+          input#ss-bh(type='radio', name='sig')
+          |Bias on host side correction
+        label.btn.btn-primary
+          input#ss-bp(type='radio', name='sig')
+          |Bias on pathogen side correction
+        label.btn.btn-primary
+          input#ss-bb(type='radio', name='sig')
+          |Bias on both sides correction
+        label.btn.btn-primary
+          input#pg(type='radio', name='sig')
+          |Power gain
+    
+    .row
+      .col-md-12
+        img#graph.img-rounded.img-responsive.center-block(src='images/no-tag_no-cor.png', alt='No spurious signal')
+        p
+        
+      
+    .row.padded
+      table.table.table-responsive
+        tr
+          td.no-border(colspan='2', rowspan='2')
+          th.full.center.bold(colspan='4') AA
+        tr
+          th.full 100 with #[br] f
+            sub st
+            |1=0.2  for A/B 
+          th.full 100 with #[br] f
+            sub st
+            |1=0.2  for A/B, #[br] f
+            sub st
+            |2=0.01  for P1/P2
+          th.full 100 causally associated
+          th.full 100 causally associated with #[br] f
+            sub st
+            |1=0.2  for A/B, #[br] f
+            sub st
+            |2=0.01  for P1/P2
+
+        tr
+          th.full.valign.bold(rowspan='6') SNP
+        tr
+          th.full 40 000
+          td.full.noss 4 000 000
+          td.full.noss 4 000 000
+          td.full.noss 4 000 000
+          td.full.noss 4 000 000
+        tr
+          th.full 10 000 with #[br]f
+            sub st
+            |1=0.2  for P1/P2
+          td.full.ss 1 000 000
+          td.full.ss-bp 1 000 000
+          td.full.noss 1 000 000
+          td.full.ss-bp 1 000 000
+        tr
+          th.full 500 with #[br] f
+            sub st
+            |1=0.2  for P1/P2, #[br] f
+            sub st
+            |2=0.016  for A/B
+
+          td.full.ss-bh 50 000
+          td.full.ss-bb 50 000
+          td.full.noss 50 000
+          td.full.ss-bb 50 000
+        tr
+          th.full 100 causally associated
+          td.full.noss 10 000
+          td.full.noss 10 000
+          td.full.noss 10 000 (100 causal)
+          td.full.noss 10 000
+        tr 
+          th.full 100 causally associated with #[br]f
+            sub st
+            |1=0.2  for P1/P2, #[br] f
+            sub st
+            |2=0.016  for A/B
+          td.full.ss-bh 10 000
+          td.full.ss-bb 10 000
+          td.full.noss 10 000
+          td.full.pg 10 000 (100 causal)
+      
+  footer.container-fluid.bg-4.text-center
+    |From  
+    a(href='http://fellay-lab.epfl.ch/') Fellay Lab
