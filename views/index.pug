@@ -9,7 +9,7 @@ block content
 
       p.letter-spacing Select the correction
       .btn-group(data-toggle='buttons')
-        label.btn.btn-primary
+        label.btn.btn-primary.btn-default
           input#no-cor(type='radio', name='cor')
           |No correction
         label.btn.btn-primary
@@ -24,21 +24,21 @@ block content
 
       p.padded.letter-spacing Select the signal
       .btn-group(data-toggle='buttons')
-        label.btn.btn-primary
+        label.btn.btn-primary.btn-default
           input#noss(type='radio', name='sig')
           |No spurious signal
         label.btn.btn-primary
           input#ss(type='radio', name='sig')
-          |Spurious signal
+          |Optimal host and pathogen correction
         label.btn.btn-primary
           input#ss-bh(type='radio', name='sig')
-          |Bias on host side correction
+          |Suboptimal host correction, optimal pathogen correction
         label.btn.btn-primary
           input#ss-bp(type='radio', name='sig')
-          |Bias on pathogen side correction
+          |Suboptimal pathogen correction, optimal host correction
         label.btn.btn-primary
           input#ss-bb(type='radio', name='sig')
-          |Bias on both sides correction
+          |Suboptimal host and pathogen correction
         label.btn.btn-primary
           input#pg(type='radio', name='sig')
           |Power gain
@@ -73,19 +73,19 @@ block content
         tr
           th.full.valign.bold(rowspan='6') SNP
         tr
-          th.full 40 000
-          td.full.noss 4 000 000
-          td.full.noss 4 000 000
-          td.full.noss 4 000 000
-          td.full.noss 4 000 000
+          th.full 40,000
+          td.full.noss 4,000,000
+          td.full.noss 4,000,000
+          td.full.noss 4,000,000
+          td.full.noss 4,000,000
         tr
-          th.full 10 000 with #[br]f
+          th.full 10,000 with #[br]f
             sub st
             |1=0.2  for P1/P2
-          td.full.ss 1 000 000
-          td.full.ss-bp 1 000 000
-          td.full.noss 1 000 000
-          td.full.ss-bp 1 000 000
+          td.full.ss 1,000,000
+          td.full.ss-bp 1,000,000
+          td.full.noss 1,000,000
+          td.full.ss-bp 1,000,000
         tr
           th.full 100 with #[br] f
             sub st
@@ -93,26 +93,26 @@ block content
             sub st
             |2=0.016  for A/B
 
-          td.full.ss-bh 10 000
-          td.full.ss-bb 10 000
-          td.full.noss 10 000
-          td.full.ss-bb 10 000
+          td.full.ss-bh 10,000
+          td.full.ss-bb 10,000
+          td.full.noss 10,000
+          td.full.ss-bb 10,000
         tr
           th.full 100 causally associated
-          td.full.noss 10 000
-          td.full.noss 10 000
-          td.full.noss 10 000 (100 causal)
-          td.full.noss 10 000
+          td.full.noss 10,000
+          td.full.noss 10,000
+          td.full.noss 10,000 (with 100 causal)
+          td.full.noss 10,000
         tr 
           th.full 100 causally associated with #[br]f
             sub st
             |1=0.2  for P1/P2, #[br] f
             sub st
             |2=0.016  for A/B
-          td.full.ss-bh 10 000
-          td.full.ss-bb 10 000
-          td.full.noss 10 000
-          td.full.pg 10 000 (100 causal)
+          td.full.ss-bh 10,000
+          td.full.ss-bb 10,000
+          td.full.noss 10,000
+          td.full.pg 10,000 (with 100 causal)
       
   footer.container-fluid.bg-4.text-center
     |From  
